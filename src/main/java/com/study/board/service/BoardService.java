@@ -41,6 +41,11 @@ public class BoardService {
         return boardRepository.findAll(pageable);
     }
 
+    public Page<Board> boaedSearchList(String searchkeyword, Pageable pageable){
+
+        return boardRepository.findByTitleContaining(searchkeyword, pageable);
+    }
+
     //특정 게시물 검색
     public Board boardview(Integer id){
 //      Optional 값으로 받아오기 때문에 get()
